@@ -1,29 +1,10 @@
 pipeline {
-
-   
+    agent { docker { image 'node:18.16.0-alpine' } }
     stages {
-        
-       
-      
-
-        stage(' Unit Testing') {
+        stage('build') {
             steps {
-                sh """
-                echo "Running Unit Tests"
-                """
+                sh 'node --version'
             }
         }
-
-        stage('Code Analysis') {
-            steps {
-                sh """
-                echo "Running Code Analysis"
-                """
-            }
-        }
-
-       
-
-    }   
-
+    }
 }
